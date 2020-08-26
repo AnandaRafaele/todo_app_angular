@@ -1,0 +1,79 @@
+.list_task {
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  justify-content: center;
+  position: absolute;
+  top: 35vh;
+
+  & > div {
+    width: 40vw;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .edit_todo {
+      flex-direction: row;
+      display: flex;
+      width: 100%;
+      align-items: center;
+      border: 1.3px solid rgba(0, 0, 0, 0.5);
+      padding: 20px 50px;
+
+      h2 {
+        font-weight: 10;
+        font-size: 1.2rem;
+        display: contents;
+      }
+
+      form {
+
+        input {
+          margin: 0px 20px;
+          width: 30vw;
+          height: 34px;
+          padding: 2px 5px;
+          border-radius: 5px;
+        }
+
+        button {
+          padding: 4px 18px;
+          background-color: #fff;
+          border-color: rgb(255, 51, 174);
+          border-radius: 5px;
+          color: #ff33ae;
+          outline: none;
+          cursor: pointer;
+
+          &:active {
+            border-color: rgba(255, 51, 174, .5);
+          }
+        }
+      }
+    }
+  }
+
+  table {
+    width: 40vw;
+    border: 1.3px solid rgba(0, 0, 0, 0.5);
+    border-top: none;
+    display: inline-grid;
+
+    tr {
+      display: grid;
+      border-bottom: 1.3px solid rgba(0, 0, 0, 0.5);
+      padding: 10px 20px;
+      grid-template-columns: 1fr 10fr .5fr .5fr;
+      align-items: center;
+    }
+
+    .edit_button, .delete_button {
+        opacity: .9;
+    }
+
+    tr:last-child {
+      border: none;
+    }
+  }
+}
