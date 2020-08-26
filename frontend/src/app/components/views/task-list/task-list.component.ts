@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { Task } from '../../../interfaces'
 import { TaskService } from '../../../services'
+import { NzModalService, NzModalRef } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-task-list',
@@ -8,6 +9,9 @@ import { TaskService } from '../../../services'
   styleUrls: ['./task-list.component.less']
 })
 export class TaskListComponent implements OnInit {
+  @ViewChild("deleteModal", { static: true })
+  private deleteConfirmation!: TemplateRef<HTMLDivElement>
+
   tasks: Task[]
   task: Task = {
     id: null,
@@ -19,6 +23,8 @@ export class TaskListComponent implements OnInit {
 
   constructor(
     private taskService: TaskService,
+    // private nzModalRef: NzModalRef,
+    private nzModal: NzModalService
   ) { }
 
   ngOnInit(): void {
@@ -28,14 +34,14 @@ export class TaskListComponent implements OnInit {
   }
 
   deleteTask(task: Task) {
-    var dlt = confirm(`Tem certeza que deseja excluir o lembrete: ${task.name}?`)
-
-    if(dlt) {
-      this.taskService.delete(task.id).subscribe(() => {
-        alert("Lembrete excluído!")
-        window.location.reload()
-      })
-    }
+    this.nzModal.create({
+      nzTitle: "Tem certeza disso?",
+      nzContent: this.deleteConfirmation,
+      nzComponentParams: {
+        task: { name: task.name }
+      },
+      nzOnOk: () => this.taskService.delete(task.id).subscribe(() => window.location.reload())
+    })
   }
 
   readById(task: Task) {
@@ -47,5 +53,4 @@ export class TaskListComponent implements OnInit {
   updateTask(task: Task) {
     this.taskService.update(task).subscribe(() => window.location.reload())
   }
-
 }

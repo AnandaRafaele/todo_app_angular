@@ -56,3 +56,7 @@
     </table>
   </div>
 </div>
+
+<ng-template #deleteModal let-params>
+  <p>Você está excluindo o lembrete: <span style="color: 'red'">{{params.task.name}}</span></p>
+</ng-template>
