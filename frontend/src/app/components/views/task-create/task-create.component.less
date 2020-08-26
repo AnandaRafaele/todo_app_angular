@@ -18,32 +18,52 @@
     form {
       display: flex;
       align-items: center;
-      justify-content: stretch;
+      // justify-content: stretch;
       margin-top: 20px;
 
-      input {
-        margin-right: 25px;
+      div:first-child {
         width: 80%;
-        height: 50px;
-        padding: 6px 10px;
-        border-radius: 5px;
-        font-size: 1.5rem;
+
+        textarea {
+          width: 95%;
+          border-radius: 5px;
+          padding: 6px 10px;
+          font-size: 0.9rem;
+          resize: none;
+        }
+
+        input {
+          margin-bottom: 10px;
+          margin-right: 25px;
+          width: 95%;
+          height: 50px;
+          padding: 6px 10px;
+          border-radius: 5px;
+          font-size: 1.5rem;
+        }
       }
 
-      button {
-        color: #fff;
-        font-weight: bold;
-        font-size: 1.5rem;
-        background-color: #ff33ae;
-        border: none;
-        outline: none;
-        padding: 7px 5%;
-        border-radius: 5px;
-        text-align: center;
-        cursor: pointer;
+      div:nth-child(2) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 20%;
 
-        &:active {
-          border: 1px solid black;
+        button {
+          color: #fff;
+          font-weight: bold;
+          font-size: 1.5rem;
+          background-color: #ff33ae;
+          border: none;
+          outline: none;
+          padding: 7px 20%;
+          border-radius: 5px;
+          text-align: center;
+          cursor: pointer;
+
+          &:active {
+            border: 1px solid black;
+          }
         }
       }
     }

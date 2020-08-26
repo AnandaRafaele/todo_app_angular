@@ -12,8 +12,11 @@ export class TaskCreateComponent implements OnInit {
 
   task: Task = {
     name: "",
-    isDone: "Fazer"
+    isDone: "Fazer",
+    description: ""
   }
+
+  toAddDescription = false
 
   constructor(
     private taskService: TaskService,
@@ -25,5 +28,11 @@ export class TaskCreateComponent implements OnInit {
 
   addTask(): void {
     this.taskService.create(this.task).subscribe(() => window.location.reload())
+  }
+
+  addDescription(): void {
+    console.log(this.toAddDescription)
+    this.toAddDescription = this.toAddDescription === false ? true : false
+
   }
 }

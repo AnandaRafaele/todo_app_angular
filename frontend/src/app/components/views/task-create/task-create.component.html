@@ -2,8 +2,31 @@
   <div>
     <h1>New Todo:</h1>
     <form>
-      <input type="text" [(ngModel)]="task.name" name="name" placeholder="Brush Teeth"/>
-      <button type="submit" (click)="addTask()">Add</button>
-    </form> 
+      <div class="inputs">
+        <input
+          type="text"
+          [(ngModel)]="task.name"
+          name="name"
+          placeholder="Brush Teeth"
+        />
+
+        <h5 (click)="addDescription()">
+          <a *ngIf="!toAddDescription"> + Add description? </a>
+          <a *ngIf="toAddDescription"> - Remove description? </a>
+        </h5>
+
+        <textarea
+          maxlength="60"
+          [(ngModel)]="task.description"
+          name="description"
+          *ngIf="toAddDescription"
+          placeholder="Describe your task here..."
+        ></textarea>
+      </div>
+
+      <div class="submit">
+        <button type="submit" (click)="addTask()">Add</button>
+      </div>
+    </form>
   </div>
 </div>
