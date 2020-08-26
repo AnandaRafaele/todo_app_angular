@@ -31,10 +31,19 @@
 
         input {
           margin: 0px 20px;
-          width: 30vw;
+          width: 20vw;
           height: 34px;
           padding: 2px 5px;
           border-radius: 5px;
+        }
+
+        select {
+          margin: 0px 20px;
+          width: 8vw;
+          height: 34px;
+          padding: 2px 5px;
+          border-radius: 5px;
+          background-color: #FFF;
         }
 
         button {
@@ -64,8 +73,12 @@
       display: grid;
       border-bottom: 1.3px solid rgba(0, 0, 0, 0.5);
       padding: 10px 20px;
-      grid-template-columns: 1fr 10fr .5fr .5fr;
+      grid-template-columns: 1fr 8fr 2fr .5fr .5fr;
       align-items: center;
+
+      .done {
+        text-decoration: line-through;
+      }
     }
 
     .edit_button, .delete_button {

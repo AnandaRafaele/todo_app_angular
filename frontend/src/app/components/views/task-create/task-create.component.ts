@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
 export class TaskCreateComponent implements OnInit {
 
   task: Task = {
-    name: ""
+    name: "",
+    isDone: "Fazer"
   }
 
   constructor(

@@ -9,6 +9,16 @@
           name="name"
           [attr.disabled]="!task.name ? '' : null"
         />
+
+        <select
+          [attr.disabled]="!task.name ? '' : null"
+          [(ngModel)]="task.isDone"
+          name="isDone"
+        >
+          <option value="Fazer">Fazer</option>
+          <option value="Feito">Feito</option>
+        </select>
+
         <button type="button" (click)="updateTask(task)">Save</button>
       </form>
     </div>
@@ -19,7 +29,8 @@
           <td>
             <input type="checkbox" />
           </td>
-          <td>{{ task.name }}</td>
+          <td [class.done]="task.isDone === 'Feito'">{{ task.name }}</td>
+          <td>{{ task.isDone }}</td>
           <td>
             <button
               nz-button
@@ -30,7 +41,7 @@
               <i nz-icon nzType="edit"></i>
             </button>
           </td>
-          <td>
+          <td *ngIf="task.isDone !== 'Fazer'">
             <button
               nz-button
               nzType="danger"

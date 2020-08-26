@@ -11,7 +11,8 @@ export class TaskListComponent implements OnInit {
   tasks: Task[]
   task: Task = {
     id: null,
-    name: ""
+    name: "",
+    isDone: ""
   }
 
   public editTask = false
@@ -21,7 +22,9 @@ export class TaskListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.taskService.read().subscribe(tasks => this.tasks = tasks)
+    this.taskService.read().subscribe(tasks => {
+      this.tasks = tasks
+    })
   }
 
   deleteTask(task: Task) {
