@@ -20,7 +20,6 @@ export class TaskCreateComponent implements OnInit {
 
   constructor(
     private taskService: TaskService,
-    private router: Router
   ) { }
 
   ngOnInit(): void {

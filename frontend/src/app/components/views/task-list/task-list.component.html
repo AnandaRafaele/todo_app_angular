@@ -30,7 +30,12 @@
             <td>
               <input type="checkbox" />
             </td>
-            <td [class.done]="task.isDone === 'Feito'">{{ task.name }}</td>
+            <td
+              [class.done]="task.isDone === 'Feito'"
+              (click)="handleDescriptionChange(task)"
+            >
+              {{ task.name }}
+            </td>
             <!-- <td>{{ task.description }}</td> -->
             <td>{{ task.isDone }}</td>
             <td>
@@ -54,8 +59,8 @@
               </button>
             </td>
           </tr>
-          <div>
-            <p>{{ task.description }}</p>
+          <div [id]="task.id" class="description">
+            <p>Description: {{ task.description }}</p>
           </div>
         </div>
       </tbody>
@@ -63,6 +68,7 @@
   </div>
 </div>
 
+<!-- MODAL -->
 <ng-template #deleteModal let-params>
   <p>
     Você está excluindo o lembrete:

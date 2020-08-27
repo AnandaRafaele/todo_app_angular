@@ -19,13 +19,13 @@ export class TaskListComponent implements OnInit {
     isDone: ""
   }
 
-  public editTask = false
-
   constructor(
     private taskService: TaskService,
     // private nzModalRef: NzModalRef,
     private nzModal: NzModalService
   ) { }
+
+  public showDescription = false
 
   ngOnInit(): void {
     this.taskService.read().subscribe(tasks => {
@@ -52,5 +52,16 @@ export class TaskListComponent implements OnInit {
 
   updateTask(task: Task) {
     this.taskService.update(task).subscribe(() => window.location.reload())
+  }
+
+  handleDescriptionChange(task: Task) {
+    this.showDescription = this.showDescription ? false : true
+    let comp = document.getElementById(`${task.id}`)
+
+    console.log(comp)
+
+    let isShowing = this.showDescription ? 'inline-grid' : 'none'
+
+    comp.style.display = isShowing
   }
 }
