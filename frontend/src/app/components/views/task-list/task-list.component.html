@@ -25,39 +25,47 @@
 
     <table class="list_todo">
       <tbody>
-        <tr *ngFor="let task of tasks">
-          <td>
-            <input type="checkbox" />
-          </td>
-          <td [class.done]="task.isDone === 'Feito'">{{ task.name }}</td>
-          <td>{{ task.description }}</td>
-          <td>{{ task.isDone }}</td>
-          <td>
-            <button
-              nz-button
-              nzType="primary"
-              (click)="readById(task)"
-              class="edit_button"
-            >
-              <i nz-icon nzType="edit"></i>
-            </button>
-          </td>
-          <td *ngIf="task.isDone !== 'Fazer'">
-            <button
-              nz-button
-              nzType="danger"
-              (click)="deleteTask(task)"
-              class="delete_button"
-            >
-              <i nz-icon nzType="delete"></i>
-            </button>
-          </td>
-        </tr>
+        <div *ngFor="let task of tasks">
+          <tr>
+            <td>
+              <input type="checkbox" />
+            </td>
+            <td [class.done]="task.isDone === 'Feito'">{{ task.name }}</td>
+            <!-- <td>{{ task.description }}</td> -->
+            <td>{{ task.isDone }}</td>
+            <td>
+              <button
+                nz-button
+                nzType="primary"
+                (click)="readById(task)"
+                class="edit_button"
+              >
+                <i nz-icon nzType="edit"></i>
+              </button>
+            </td>
+            <td *ngIf="task.isDone !== 'Fazer'">
+              <button
+                nz-button
+                nzType="danger"
+                (click)="deleteTask(task)"
+                class="delete_button"
+              >
+                <i nz-icon nzType="delete"></i>
+              </button>
+            </td>
+          </tr>
+          <div>
+            <p>{{ task.description }}</p>
+          </div>
+        </div>
       </tbody>
     </table>
   </div>
 </div>
 
 <ng-template #deleteModal let-params>
-  <p>Você está excluindo o lembrete: <span style="color: 'red'">{{params.task.name}}</span></p>
+  <p>
+    Você está excluindo o lembrete:
+    <span style="color: 'red'">{{ params.task.name }}</span>
+  </p>
 </ng-template>

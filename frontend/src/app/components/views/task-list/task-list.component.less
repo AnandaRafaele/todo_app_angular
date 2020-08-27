@@ -28,7 +28,6 @@
       }
 
       form {
-
         input {
           margin: 0px 20px;
           width: 20vw;
@@ -43,7 +42,7 @@
           height: 34px;
           padding: 2px 5px;
           border-radius: 5px;
-          background-color: #FFF;
+          background-color: #fff;
         }
 
         button {
@@ -56,7 +55,7 @@
           cursor: pointer;
 
           &:active {
-            border-color: rgba(255, 51, 174, .5);
+            border-color: rgba(255, 51, 174, 0.5);
           }
         }
       }
@@ -68,26 +67,83 @@
     border: 1.3px solid rgba(0, 0, 0, 0.5);
     border-top: none;
     display: inline-grid;
+    // display: flex;
+    overflow: scroll;
+    overflow-x: hidden;
+    max-height: 50vh;
+
+    
+
+    tbody > div {
+      border-bottom: 1.3px solid rgba(0, 0, 0, 0.5);
+      // padding: 10px 20px;
+
+      & > div {
+        padding: 5px 20px;
+      }
+    }
 
     tr {
-      display: grid;
-      border-bottom: 1.3px solid rgba(0, 0, 0, 0.5);
+      margin: 0px;
       padding: 10px 20px;
-      grid-template-columns: 1fr 4fr 8fr 1fr .5fr .5fr;
-      // grid-template-columns: 1fr 8fr 2fr .5fr .5fr;
+      display: grid;
+      // border-bottom: 1.3px solid rgba(0, 0, 0, 0.5);
+      // grid-template-columns: 1fr 4fr 8fr 1fr .5fr .5fr;
+      grid-template-columns: 1fr 8fr 2fr 0.5fr 0.5fr;
       align-items: center;
+      background-color: rgb(250 250 250);
+      cursor: pointer;
 
       .done {
         text-decoration: line-through;
       }
     }
 
-    .edit_button, .delete_button {
-        opacity: .9;
+    .edit_button,
+    .delete_button {
+      opacity: 0.9;
+      margin: 0px 2px;
     }
 
     tr:last-child {
       border: none;
     }
   }
+}
+
+
+//overflow style
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(255 51 174);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255 51 174, .5);
+}
+//overflow style
+
+.collapse {
+  display: none;
+}
+.collapse.in {
+  display: block;
+}
+tr.collapse.in {
+  display: table-row;
+}
+tbody.collapse.in {
+  display: table-row-group;
 }
