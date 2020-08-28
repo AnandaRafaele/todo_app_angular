@@ -64,7 +64,7 @@ export class TaskListComponent implements OnInit {
     if (task.description) {
       task.active = task.active ? false : true
     } else {
-      alert("This ToDo doesn't have a description!")
+      return this.taskService.createNotification("warning", "Ops!", "This ToDo does not have a description!")
     }
   }
 

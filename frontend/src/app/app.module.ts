@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 //NG-ZOHO
-import { NzIconModule, NzButtonModule, NzModalModule, NzLayoutModule, NzCollapseModule } from 'ng-zorro-antd';
+import { NzIconModule, NzButtonModule, NzModalModule, NzLayoutModule, NzCollapseModule, NzNotificationModule} from 'ng-zorro-antd';
+
 
 import { IconDefinition } from '@ant-design/icons-angular';
 import * as AllIcons from '@ant-design/icons-angular/icons';
@@ -50,8 +51,8 @@ registerLocaleData(pt);
     NzButtonModule,
     NzModalModule,
     NzLayoutModule,
-    NzCollapseModule
-    
+    NzCollapseModule,
+    NzNotificationModule
   ],
   providers: [{ provide: NZ_I18N, useValue: pt_BR }],
   bootstrap: [AppComponent]
