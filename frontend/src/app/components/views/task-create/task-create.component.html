@@ -1,8 +1,8 @@
 <div class="create_task">
   <div>
     <h1>New Todo:</h1>
-    <form>
-      <div class="inputs">
+    <div class="form">
+      <form>
         <input
           type="text"
           [(ngModel)]="task.name"
@@ -22,11 +22,10 @@
           *ngIf="toAddDescription"
           placeholder="Describe your task here..."
         ></textarea>
-      </div>
-
+      </form>
       <div class="submit">
         <button type="submit" (click)="addTask()">Add</button>
       </div>
-    </form>
+    </div>
   </div>
 </div>

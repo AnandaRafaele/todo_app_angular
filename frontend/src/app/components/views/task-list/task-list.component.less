@@ -27,35 +27,63 @@
         display: contents;
       }
 
+      h5 {
+        margin: 0px 20px;
+      }
+
       form {
-        input {
-          margin: 0px 20px;
-          width: 20vw;
-          height: 34px;
-          padding: 2px 5px;
-          border-radius: 5px;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+
+        div:first-child {
+          width: 80%;
+
+          textarea {
+            width: 91%;
+            border-radius: 5px;
+            padding: 6px 10px;
+            font-size: 0.9rem;
+            resize: none;
+            margin: 0px 20px;
+          }
+
+          input {
+            margin: 0px 20px;
+            width: 70%;
+            height: 34px;
+            padding: 2px 5px;
+            border-radius: 5px;
+          }
+
+          select {
+            margin: 0px 20px;
+            width: 15%;
+            height: 34px;
+            padding: 2px 5px;
+            border-radius: 5px;
+            background-color: #fff;
+          }
         }
 
-        select {
-          margin: 0px 20px;
-          width: 8vw;
-          height: 34px;
-          padding: 2px 5px;
-          border-radius: 5px;
-          background-color: #fff;
-        }
+        div:nth-child(2) {
+          display: flex;
+          justify-content: center;
+          align-items: flex-start;
+          width: 20%;
 
-        button {
-          padding: 4px 18px;
-          background-color: #fff;
-          border-color: rgb(255, 51, 174);
-          border-radius: 5px;
-          color: #ff33ae;
-          outline: none;
-          cursor: pointer;
+          button {
+            padding: 4px 18px;
+            background-color: #fff;
+            border-color: rgb(255, 51, 174);
+            border-radius: 5px;
+            color: #ff33ae;
+            outline: none;
+            cursor: pointer;
 
-          &:active {
-            border-color: rgba(255, 51, 174, 0.5);
+            &:active {
+              border-color: rgba(255, 51, 174, 0.5);
+            }
           }
         }
       }
@@ -71,8 +99,6 @@
     overflow: scroll;
     overflow-x: hidden;
     max-height: 50vh;
-
-    
 
     tbody > div {
       border-bottom: 1.3px solid rgba(0, 0, 0, 0.5);
@@ -99,6 +125,10 @@
       }
     }
 
+    .description {
+      display: none;
+    }
+
     .edit_button,
     .delete_button {
       opacity: 0.9;
@@ -110,7 +140,6 @@
     }
   }
 }
-
 
 //overflow style
 ::-webkit-scrollbar {
@@ -131,23 +160,6 @@
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255 51 174, .5);
+  background: rgba(255 51 174, 0.5);
 }
 //overflow style
-
-.collapse {
-  display: none;
-}
-.collapse.in {
-  display: block;
-}
-tr.collapse.in {
-  display: table-row;
-}
-tbody.collapse.in {
-  display: table-row-group;
-}
-
-.description {
-  display: none;
-}

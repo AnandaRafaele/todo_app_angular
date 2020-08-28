@@ -25,7 +25,12 @@ export class TaskListComponent implements OnInit {
     private nzModal: NzModalService
   ) { }
 
-  public showDescription = false
+  public showDescription = true
+  public toEditDescription = false
+
+  editDescription() {
+    this.toEditDescription = this.toEditDescription ? false : true
+  }
 
   ngOnInit(): void {
     this.taskService.read().subscribe(tasks => {
@@ -64,4 +69,6 @@ export class TaskListComponent implements OnInit {
 
     comp.style.display = isShowing
   }
+
+  
 }
