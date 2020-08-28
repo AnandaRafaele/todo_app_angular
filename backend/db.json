@@ -1,3 +1,16 @@
 {
-  "tasks": []
+  "tasks": [
+    {
+      "name": "Wash the dishes",
+      "isDone": "Fazer",
+      "description": "",
+      "id": 1
+    },
+    {
+      "name": "Do the laundry",
+      "isDone": "Fazer",
+      "description": "Remember not to put the white clothes with the colored ones",
+      "id": 2
+    }
+  ]
 }
