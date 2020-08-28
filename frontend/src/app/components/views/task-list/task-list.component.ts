@@ -16,7 +16,8 @@ export class TaskListComponent implements OnInit {
   task: Task = {
     id: null,
     name: "",
-    isDone: ""
+    isDone: "",
+    active: false
   }
 
   constructor(
@@ -34,7 +35,7 @@ export class TaskListComponent implements OnInit {
 
   ngOnInit(): void {
     this.taskService.read().subscribe(tasks => {
-      this.tasks = tasks
+      this.tasks = tasks.map(item => item = { ...item, active: false })
     })
   }
 
@@ -60,15 +61,12 @@ export class TaskListComponent implements OnInit {
   }
 
   handleDescriptionChange(task: Task) {
-    this.showDescription = this.showDescription ? false : true
-    let comp = document.getElementById(`${task.id}`)
-
-    console.log(comp)
-
-    let isShowing = this.showDescription ? 'inline-grid' : 'none'
-
-    comp.style.display = isShowing
+    if (task.description) {
+      task.active = task.active ? false : true
+    } else {
+      alert("This ToDo doesn't have a description!")
+    }
   }
 
-  
+
 }

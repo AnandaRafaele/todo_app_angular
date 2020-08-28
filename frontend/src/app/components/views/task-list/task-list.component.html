@@ -31,9 +31,8 @@
             name="description"
             *ngIf="toEditDescription"
             [attr.disabled]="!task.name ? '' : null"
+            placeholder="Add a description here..."
           ></textarea>
-
-          
         </div>
         <div class="submit">
           <button type="button" (click)="updateTask(task)">Save</button>
@@ -47,10 +46,19 @@
           <tr>
             <td>
               <span *ngIf="task.description">
-                <i nz-icon nzType="right" *ngIf="!toEditDescription" nzTheme="outline"></i>
-                <i nz-icon nzType="down" *ngIf="toEditDescription" nzTheme="outline"></i>
+                <i
+                  nz-icon
+                  nzType="right"
+                  *ngIf="!task.active"
+                  nzTheme="outline"
+                ></i>
+                <i
+                  nz-icon
+                  nzType="down"
+                  *ngIf="task.active"
+                  nzTheme="outline"
+                ></i>
               </span>
-              
             </td>
             <td
               [class.done]="task.isDone === 'Feito'"
@@ -58,9 +66,8 @@
             >
               {{ task.name }}
             </td>
-            <!-- <td>{{ task.description }}</td> -->
             <td>{{ task.isDone }}</td>
-            <td>
+            <td class="actions">
               <button
                 nz-button
                 nzType="primary"
@@ -69,19 +76,19 @@
               >
                 <i nz-icon nzType="edit"></i>
               </button>
-            </td>
-            <td *ngIf="task.isDone !== 'Fazer'">
               <button
                 nz-button
                 nzType="danger"
                 (click)="deleteTask(task)"
                 class="delete_button"
+                *ngIf="task.isDone === 'Feito'"
               >
                 <i nz-icon nzType="delete"></i>
               </button>
             </td>
           </tr>
-          <div [id]="task.id" class="description">
+
+          <div [id]="task.id" *ngIf="task.active">
             <p>Description: {{ task.description }}</p>
           </div>
         </div>
